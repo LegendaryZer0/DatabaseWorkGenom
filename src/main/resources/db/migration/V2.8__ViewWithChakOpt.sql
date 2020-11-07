@@ -1,0 +1,1 @@
+CREATE VIEW  view4 as (select * from forview1 where key between 1 and 4 ) WITH CHECK OPTION;

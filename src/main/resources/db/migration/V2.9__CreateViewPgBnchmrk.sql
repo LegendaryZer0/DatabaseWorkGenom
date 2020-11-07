@@ -1,0 +1,1 @@
+create view viewbnchmrk as (select  * from benchsimpletable);

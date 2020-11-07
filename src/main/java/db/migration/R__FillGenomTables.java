@@ -1,9 +1,11 @@
-package org.example;
+package db.migration;
 
 import com.google.common.collect.HashMultiset;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
 import org.flywaydb.core.Flyway;
+import org.flywaydb.core.api.migration.BaseJavaMigration;
+import org.flywaydb.core.api.migration.Context;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,30 +20,25 @@ import java.util.Arrays;
  * Hello world!
  *
  */
-public class App 
+public class R__FillGenomTables /*extends BaseJavaMigration*/
 {
     static int batchСursor=0;
     static int batchSize=100;
-    private static final String URL = "jdbc:postgresql://localhost:5432/TestForLab";
+    private static final String URL = "jdbc:postgresql://course-db1.cbp2hye5u6cf.us-east-1.rds.amazonaws.com:5432/postgres";
     private static final String USER = "postgres";
-    private static final String PASSWORD = "123456789";
+    private static final String PASSWORD = "qwerty007";
     private static  String[] array;
     private static ArrayList<String> arrayList = new ArrayList<>(100);
 
     //language=SQL
-    private static final String SQL_ADD_GENOM1="INSERT INTO \"gen9_1\" VALUES (?)";
+    private static final String SQL_ADD_GENOM1="INSERT INTO \"genom1\" VALUES (?)";
     //language=SQL
-    private static final String SQL_ADD_GENOM2="INSERT INTO \"gen9_2\" VALUES (?)";
+    private static final String SQL_ADD_GENOM2="INSERT INTO \"genom2\" VALUES (?)";
 
     public static void main( String[] args ) throws IOException {
-        Flyway flyway = Flyway.configure().dataSource(URL, USER, PASSWORD).load();
+     /*   Flyway flyway = Flyway.configure().dataSource(URL, USER, PASSWORD).load();*/
 
 
-        File file1 = new File("src/main/java/resources/Genome_1-1.txt");
-        File file2 = new File("src/main/java/resources/Genome_2-1.txt");
-
-     prepareData(file1,9);
-     insertData(SQL_ADD_GENOM1);
 
 
 
@@ -84,6 +81,7 @@ public class App
     public static void insertData(String SQL){
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+
             arrayList.forEach(x->{
                 try {
                     preparedStatement.setString(1, x);
@@ -116,8 +114,18 @@ public class App
 
     }
 
+/*
+    @Override
+    public void migrate(Context context) throws Exception {
+        File file1 = new File("src/main/resources/Genome_1-1.txt");
+        File file2 = new File("src/main/resources/Genome_2-1.txt");
 
+        prepareData(file1,9);
+        insertData(SQL_ADD_GENOM1);
+        prepareData(file2,9);
+        insertData(SQL_ADD_GENOM2);
 
+    }*/
 }
 
 

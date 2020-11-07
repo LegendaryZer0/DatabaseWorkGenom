@@ -1,0 +1,1 @@
+INSERT INTO a (num, name) values (7,'bbb');

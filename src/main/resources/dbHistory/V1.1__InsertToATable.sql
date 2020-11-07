@@ -1,0 +1,1 @@
+INSERT INTO gen1 (word) values ('flyway');

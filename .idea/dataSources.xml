@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="TestForLab@localhost" uuid="ab9ddb02-754f-4c4b-9953-3be60ef07d19">
+    <data-source source="LOCAL" name="PostgreSQL - handsome@localhost" uuid="5c5786e4-f98a-436d-86ab-968109fcd918">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/TestForLab</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/handsome</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="postgres@course-db1.cbp2hye5u6cf.us-east-1.rds.amazonaws.com" uuid="ce86b2bb-95fb-4426-a201-d4a9af83e0b3">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://course-db1.cbp2hye5u6cf.us-east-1.rds.amazonaws.com:5432/postgres</jdbc-url>
     </data-source>
   </component>
 </project>
